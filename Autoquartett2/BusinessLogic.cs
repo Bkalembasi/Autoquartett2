@@ -36,8 +36,33 @@ namespace Autoquartett2
         }
         public void StartGame()
         {
+            int startX = 2;
+            int startY = 1;
+            int playerCount;
 
+            GUI gui = new GUI();
+            gui.WriteWindowBorder();
+            gui.SetWindowCursorCoords(startX, startY);
+
+            Console.Write("Mit wie vielen Spielern soll gespielt werden?");
+
+            startY++;
+
+            gui.SetWindowCursorCoords(startX, startY);
+            playerCount = Convert.ToInt32(Console.ReadLine());
+
+            if (playerCount < 4)
+            {
+                startY++;
+                gui.SetWindowCursorCoords(startX, startY);
+                Console.Write("Soll mit Computern aufgefüllt werden? (y/n)");
+
+                startY++;
+                gui.SetWindowCursorCoords(startX, startY);
+                Console.ReadLine();
+            }
         }
+
         private int StartTurn()
         {
             return 1;

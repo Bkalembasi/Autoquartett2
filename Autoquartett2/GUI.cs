@@ -31,7 +31,7 @@ namespace Autoquartett2
             WriteYAxis(yVal);
         }
 
-        private void SetWindowCursorCoords(int x, int y)
+        public void SetWindowCursorCoords(int x, int y)
         {
             Console.CursorLeft = x;
             Console.CursorTop = y;
