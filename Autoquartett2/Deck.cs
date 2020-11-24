@@ -13,7 +13,7 @@ namespace Autoquartett2
         /**
          * Liste, die 32 Objekte des Typs Car enthält 
          */
-        public LinkedList<Car> cars = new LinkedList<Car>();
+        private LinkedList<Car> cars = new LinkedList<Car>();
 
         public Deck()
         {
@@ -26,7 +26,8 @@ namespace Autoquartett2
         private void InitateCards()
         {
             string jsonString;
-            string filePath = @"C:\Users\sschallehn\Documents\Berufsschule\Jahr 2\ANW_Projekt_Block1";
+            string workingDirectory = Environment.CurrentDirectory;
+            string filePath = Directory.GetParent(workingDirectory).Parent.Parent.FullName;
             string fileName = "CarList.json";
 
 

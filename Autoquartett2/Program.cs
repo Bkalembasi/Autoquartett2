@@ -6,7 +6,7 @@ namespace Autoquartett2
     {
         static void Main(string[] args)
         {
-           
+
         }
     }
 }
