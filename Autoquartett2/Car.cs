@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Autoquartett2
 {
-    class Car        
+    public class Car        
     {
         private string brand;
         private string model;
@@ -17,32 +17,32 @@ namespace Autoquartett2
         private double acceleration;
 
 
-        public void setBrand(string ParamBrand)
+        public void SetBrand(string ParamBrand)
         {
             this.brand = ParamBrand;
         }
 
-        public string getBrand()
+        public string GetBrand()
         {
             return this.brand;
         }
 
-        public void setModel(string ParamModel)
+        public void SetModel(string ParamModel)
         {
             this.model = ParamModel;
         }
 
-        public string getModel()
+        public string GetModel()
         {
             return this.model;
         }
 
-        public void setCarClass(string ParamCarClass)
+        public void SetCarClass(string ParamCarClass)
         {
             this.carClass = ParamCarClass;
         }
 
-        public string getCarClass()
+        public string GetCarClass()
         {
             return this.carClass;
         }
@@ -118,12 +118,12 @@ namespace Autoquartett2
             Console.WriteLine(this.GetPiston());
         }
 
-        public double Comparison(double[] values, bool higherNumber)
+        public static double Comparison(double[] values, bool higherNumber)
         {
-            double tempHighest = 0;
-            double tempLowest = 0;
+            double tempHighest = values[0];
+            double tempLowest = values[0];
 
-            for (int i = 0; i < values.Length; i++)
+            for (int i = 1; i < values.Length; i++)
             {
                 if (values[i] > tempHighest)
                 {
@@ -158,10 +158,14 @@ namespace Autoquartett2
                                     "Hubraum: {6} \n" +
                                     "Anzahl zylinder: {7} \n" +
                                     "Beschleunigung: {8} \n\n",
-                getBrand(), getModel(),
-                getCarClass(), GetKmPerH(),
-                GetPs(), GetConsumption(),
-                GetCcm(), GetPiston(),
+                GetBrand(), 
+                GetModel(),
+                GetCarClass(), 
+                GetKmPerH(),
+                GetPs(), 
+                GetConsumption(),
+                GetCcm(), 
+                GetPiston(),
                 GetAcceleration());
             return ausgabe;
         }
