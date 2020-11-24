@@ -5,7 +5,7 @@ using Newtonsoft.Json;
 
 namespace Autoquartett2
 {
-    class Car        
+    public class Car        
     {
         [JsonProperty]
         private string brand;
@@ -27,32 +27,32 @@ namespace Autoquartett2
         private double acceleration;
 
 
-        public void setBrand(string ParamBrand)
+        public void SetBrand(string ParamBrand)
         {
             this.brand = ParamBrand;
         }
 
-        public string getBrand()
+        public string GetBrand()
         {
             return this.brand;
         }
 
-        public void setModel(string ParamModel)
+        public void SetModel(string ParamModel)
         {
             this.model = ParamModel;
         }
 
-        public string getModel()
+        public string GetModel()
         {
             return this.model;
         }
 
-        public void setCarClass(string ParamCarClass)
+        public void SetCarClass(string ParamCarClass)
         {
             this.carClass = ParamCarClass;
         }
 
-        public string getCarClass()
+        public string GetCarClass()
         {
             return this.carClass;
         }
@@ -117,18 +117,23 @@ namespace Autoquartett2
             return (this.acceleration);
         }
 
-        public void GetCardInformation()
+        public string[] GetCardInformation()
         {
-            //TODO
-            Console.WriteLine(this.GetAcceleration());
-            Console.WriteLine(this.GetCcm());
-            Console.WriteLine(this.GetConsumption());
-            Console.WriteLine(this.GetKmPerH());
-            Console.WriteLine(this.GetPs());
-            Console.WriteLine(this.GetPiston());
+            string[] carInfo = new string[9];
+            carInfo[0] = "Marke: " + GetBrand();
+            carInfo[1] = "Modell: " + GetModel();
+            carInfo[2] = "Klasse: " + GetCarClass();
+            carInfo[3] = "Km/H: " + GetKmPerH();
+            carInfo[4] = "PS: " + GetPs();
+            carInfo[5] = "Verbrauch: " + GetConsumption();
+            carInfo[6] = "Hubraum: " + GetCcm();
+            carInfo[7] = "Anz. Zylinder: " + GetPiston();
+            carInfo[8] = "Beschleunigung: " + GetAcceleration();
+
+            return carInfo;
         }
 
-        public double Comparison(double[] values, bool higherNumber)
+        public static double Comparison(double[] values, bool higherNumber)
         {
             double tempHighest = 0;
             double tempLowest = 0;
@@ -168,8 +173,8 @@ namespace Autoquartett2
                                     "Hubraum: {6} \n" +
                                     "Anzahl zylinder: {7} \n" +
                                     "Beschleunigung: {8} \n\n",
-                getBrand(), getModel(),
-                getCarClass(), GetKmPerH(),
+                GetBrand(), GetModel(),
+                GetCarClass(), GetKmPerH(),
                 GetPs(), GetConsumption(),
                 GetCcm(), GetPiston(),
                 GetAcceleration());
