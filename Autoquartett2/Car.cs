@@ -17,32 +17,32 @@ namespace Autoquartett2
         private double acceleration;
 
 
-        public void setBrand(string ParamBrand)
+        public void SetBrand(string ParamBrand)
         {
             this.brand = ParamBrand;
         }
 
-        public string getBrand()
+        public string GetBrand()
         {
             return this.brand;
         }
 
-        public void setModel(string ParamModel)
+        public void SetModel(string ParamModel)
         {
             this.model = ParamModel;
         }
 
-        public string getModel()
+        public string GetModel()
         {
             return this.model;
         }
 
-        public void setCarClass(string ParamCarClass)
+        public void SetCarClass(string ParamCarClass)
         {
             this.carClass = ParamCarClass;
         }
 
-        public string getCarClass()
+        public string GetCarClass()
         {
             return this.carClass;
         }
@@ -118,7 +118,7 @@ namespace Autoquartett2
             Console.WriteLine(this.GetPiston());
         }
 
-        public double Comparison(double[] values, bool higherNumber)
+        public static double Comparison(double[] values, bool higherNumber)
         {
             double tempHighest = 0;
             double tempLowest = 0;
@@ -158,8 +158,8 @@ namespace Autoquartett2
                                     "Hubraum: {6} \n" +
                                     "Anzahl zylinder: {7} \n" +
                                     "Beschleunigung: {8} \n\n",
-                getBrand(), getModel(),
-                getCarClass(), GetKmPerH(),
+                GetBrand(), GetModel(),
+                GetCarClass(), GetKmPerH(),
                 GetPs(), GetConsumption(),
                 GetCcm(), GetPiston(),
                 GetAcceleration());
