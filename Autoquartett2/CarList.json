@@ -1,35 +1,90 @@
 [
-   {
-      "brand":"Mazda",
-      "model":"RX-8",
-      "carClass":"Sportwagen",
-      "acceleration":6.5,
-      "ccm":1308,
-      "ps":231,
-      "consumption":11.4,
-      "piston":2,
-      "kmPerH":240
-   },
-   {
-      "brand":"Jaguar",
-      "model":"S-Type",
-      "carClass":"Limousine",
-      "acceleration":8.6,
-      "ccm":2720,
-      "ps":207,
-      "consumption":8.6,
-      "piston":6,
-      "kmPerH":227
-   },
-   {
-      "brand":"Einhornbabycar",
-      "model":"Fantasie",
-      "carClass":"Dreirad",
-      "acceleration":4,
-      "ccm":100,
-      "ps":100,
-      "consumption":0.5,
-      "piston":2,
-      "kmPerH":65
-   }
+  {
+    "brand": "Mazda",
+    "model": "RX-8",
+    "carClass": "Sportwagen",
+    "acceleration": 6.5,
+    "ccm": 1308,
+    "ps": 231,
+    "consumption": 11.4,
+    "piston": 2,
+    "kmPerH": 240
+  },
+  {
+    "brand": "Jaguar",
+    "model": "S-Type",
+    "carClass": "Limousine",
+    "acceleration": 8.6,
+    "ccm": 2720,
+    "ps": 207,
+    "consumption": 8.6,
+    "piston": 6,
+    "kmPerH": 227
+  },
+  {
+    "brand": "Kia",
+    "model": "Sorento",
+    "carClass": "SUV",
+    "acceleration": 12.4,
+    "ccm": 2497,
+    "ps": 170,
+    "consumption": 8.6,
+    "piston": 4,
+    "kmPerH": 182
+  },
+  {
+    "brand": "Mercedes-Benz",
+    "model": "GLE 63 AMG",
+    "carClass": "Sport Coupe",
+    "acceleration": 4.2,
+    "ccm": 5461,
+    "ps": 585,
+    "consumption": 11.9,
+    "piston": 8,
+    "kmPerH": 280
+  },
+  {
+    "brand": "BMW",
+    "model": "840d xDrive",
+    "carClass": "Cabriolet",
+    "acceleration": 5.2,
+    "ccm": 2993,
+    "ps": 320,
+    "consumption": 7.4,
+    "piston": 6,
+    "kmPerH": 250
+  },
+  {
+    "brand": "Volkswagen",
+    "model": "Golf VIII",
+    "carClass": "Kompaktklasse",
+    "acceleration": 6.2,
+    "ccm": 1984,
+    "ps": 245,
+    "consumption": 6.5,
+    "piston": 4,
+    "kmPerH": 250
+  },
+  {
+    "brand": "Mercedes-Benz",
+    "model": "E200",
+    "carClass": "Cabriolet",
+    "acceleration": 8.1,
+    "ccm": 1991,
+    "ps": 184,
+    "consumption": 6.1,
+    "piston": 4,
+    "kmPerH": 240
+  },
+  {
+    "brand": "BMW",
+    "model": "730i E38",
+    "carClass": "Limousine",
+    "acceleration": 8.3,
+    "ccm": 2997,
+    "ps": 218,
+    "consumption": 12.9,
+    "piston": 8,
+    "kmPerH": 235
+  }
 ]
