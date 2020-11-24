@@ -1,19 +1,29 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Newtonsoft.Json;
 
 namespace Autoquartett2
 {
     class Car        
     {
+        [JsonProperty]
         private string brand;
+        [JsonProperty]
         private string model;
+        [JsonProperty]
         private string carClass;
+        [JsonProperty]
         private int kmPerH;
+        [JsonProperty]
         private int ps;
+        [JsonProperty]
         private double consumption;
+        [JsonProperty]
         private int ccm;
+        [JsonProperty]
         private int piston;
+        [JsonProperty]
         private double acceleration;
 
 
