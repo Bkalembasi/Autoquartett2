@@ -9,6 +9,7 @@ namespace Autoquartett2
         private int playerCount;
         private int computerCount;
         private bool computer;
+        private List<Player> playerList = new List<Player>();
 
         public void SetPlayerCount(int ParamPlayerCount)
         {
@@ -38,7 +39,6 @@ namespace Autoquartett2
         {
             int startX = 2;
             int startY = 1;
-            int playerCount;
 
             GUI gui = new GUI();
             gui.WriteWindowBorder();
@@ -59,9 +59,76 @@ namespace Autoquartett2
 
                 startY++;
                 gui.SetWindowCursorCoords(startX, startY);
-                Console.ReadLine();
+                if("y".Equals(Console.ReadLine()) || "Y".Equals(Console.ReadLine()))
+                {
+                    computerCount = 4 - playerCount;
+                    computer = true;
+                }
+            }
+            
+            for(int i = 0; i < 4; i++)
+            {
+                Player player = new Player();
+                player.SetInGame(true);
+                if(computer && playerCount >= (i-1))
+                {
+                    player.setKI(true);
+                } else
+                {
+                    player.setKI(false);
+                }
+                playerList.Add(player);
+     
+            }
+            Deck deck = new Deck();
+            deck.ShuffleCars();
+            deck.DistributeCars(playerList);
+
+            int playersInGame = playerCount + computerCount;
+            int playerTurn = 0;
+            while(playersInGame > 1)
+            {
+                Player player = playerList[playerTurn];
+                if (player.IsInGame())
+                {
+                    Console.Clear();
+                    startX = 2;
+                    startY = 1;
+                    gui.SetWindowCursorCoords(startX, startY);
+
+                    Console.Write("Spieler " + (playerTurn+1) + " ist am Zug.");
+                    startY++;
+                    gui.SetWindowCursorCoords(startX, startY);
+
+                    if (player.GetCarCount() > 0)
+                    {
+                        Car car = (Car)player.GetFirstCard();
+                        gui.ShowCard(car);
+                        startY++;
+                        gui.SetWindowCursorCoords(startX, startY);
+                        Console.Write("Welcher Wert soll verglichen werden?");
+
+                        startY++;
+                        gui.SetWindowCursorCoords(startX, startY);
+
+                        string toCompare = Console.ReadLine();
+
+                    } else
+                    {
+                        player.SetInGame(false);
+                    }              
+                }
+                playerTurn++;
+
+                if (playerTurn > playersInGame)
+                {
+                    playerTurn = 0;
+                }
+
             }
         }
+
+
 
         private int StartTurn()
         {

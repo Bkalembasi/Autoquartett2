@@ -22,6 +22,27 @@ namespace Autoquartett2
         private bool inGame;
 
         /*
+         * Zeigt an, ob der Spieler der Computer ist
+         */
+        private bool kI;
+
+        /*
+         * Setz den Wert kI auf true oder talse
+         */
+        public void setKI(bool isKI)
+        {
+            this.kI = isKI;
+        }
+        
+        /*
+         * Gibt den wert kI zurück
+         */
+        public bool isKI()
+        {
+            return this.kI;
+        }
+
+        /*
          * Fügt der liste cars ein Objekt der Klasse Car hinzu (Fügt dem Spielstapel cars eine weitere Karte hinzu)
          */
         public void AddCar(Car car)
