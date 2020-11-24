@@ -59,7 +59,7 @@ namespace Autoquartett2
 
                 startY++;
                 gui.SetWindowCursorCoords(startX, startY);
-                if("y".Equals(Console.ReadLine()) || "Y".Equals(Console.ReadLine()))
+                if("y".Equals(Console.ReadLine().ToLower()))
                 {
                     computerCount = 4 - playerCount;
                     computer = true;
