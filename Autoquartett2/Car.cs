@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Autoquartett2
 {
-    class Car        
+    public class Car        
     {
         private string brand;
         private string model;
@@ -107,15 +107,20 @@ namespace Autoquartett2
             return (this.acceleration);
         }
 
-        public void GetCardInformation()
+        public string[] GetCardInformation()
         {
-            //TODO
-            Console.WriteLine(this.GetAcceleration());
-            Console.WriteLine(this.GetCcm());
-            Console.WriteLine(this.GetConsumption());
-            Console.WriteLine(this.GetKmPerH());
-            Console.WriteLine(this.GetPs());
-            Console.WriteLine(this.GetPiston());
+            string[] carInfo = new string[9];
+            carInfo[0] = "Marke: " + getBrand();
+            carInfo[1] = "Modell: " + getModel();
+            carInfo[2] = "Klasse: " + getCarClass();
+            carInfo[3] = "Km/H: " + GetKmPerH();
+            carInfo[4] = "PS: " + GetPs();
+            carInfo[5] = "Verbrauch: " + GetConsumption();
+            carInfo[6] = "Hubraum: " + GetCcm();
+            carInfo[7] = "Anz. Zylinder: " + GetPiston();
+            carInfo[8] = "Beschleunigung: " + GetAcceleration();
+
+            return carInfo;
         }
 
         public static double Comparison(double[] values, bool higherNumber)
