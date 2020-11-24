@@ -110,9 +110,9 @@ namespace Autoquartett2
         public string[] GetCardInformation()
         {
             string[] carInfo = new string[9];
-            carInfo[0] = "Marke: " + getBrand();
-            carInfo[1] = "Modell: " + getModel();
-            carInfo[2] = "Klasse: " + getCarClass();
+            carInfo[0] = "Marke: " + GetBrand();
+            carInfo[1] = "Modell: " + GetModel();
+            carInfo[2] = "Klasse: " + GetCarClass();
             carInfo[3] = "Km/H: " + GetKmPerH();
             carInfo[4] = "PS: " + GetPs();
             carInfo[5] = "Verbrauch: " + GetConsumption();
