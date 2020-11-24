@@ -1,0 +1,35 @@
+[
+   {
+      "brand":"Mazda",
+      "model":"RX-8",
+      "carClass":"Sportwagen",
+      "acceleration":6.5,
+      "ccm":1308,
+      "ps":231,
+      "consumption":11.4,
+      "piston":2,
+      "kmPerH":240
+   },
+   {
+      "brand":"Jaguar",
+      "model":"S-Type",
+      "carClass":"Limousine",
+      "acceleration":8.6,
+      "ccm":2720,
+      "ps":207,
+      "consumption":8.6,
+      "piston":6,
+      "kmPerH":227
+   },
+   {
+      "brand":"Einhornbabycar",
+      "model":"Fantasie",
+      "carClass":"Dreirad",
+      "acceleration":4,
+      "ccm":100,
+      "ps":100,
+      "consumption":0.5,
+      "piston":2,
+      "kmPerH":65
+   }
+]
