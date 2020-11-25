@@ -65,58 +65,52 @@ namespace Autoquartett2
                     computer = true;
                 }
             }
-            
-            for(int i = 0; i < 4; i++)
+
+            CreatePlayerList();
+
+            Deck deck = new Deck();
+            deck.ShuffleCars();
+            deck.DistributeCars(this.playerList);
+
+            PlayGame(gui);
+        }
+        private void CreatePlayerList()
+        {
+            for (int i = 0; i < 4; i++)
             {
                 Player player = new Player();
                 player.SetInGame(true);
-                if(computer && playerCount >= (i-1))
+                if (this.computer && this.playerCount > i)
                 {
                     player.setKI(true);
-                } else
+                }
+                else
                 {
                     player.setKI(false);
                 }
                 playerList.Add(player);
-     
             }
-            Deck deck = new Deck();
-            deck.ShuffleCars();
-            deck.DistributeCars(playerList);
+        }
 
+        private void PlayGame(GUI gui)
+        {
             int playersInGame = playerCount + computerCount;
             int playerTurn = 0;
-            while(playersInGame > 1)
+
+            gui.ReloadWindowWithBorder();
+
+            while (playersInGame > 1)
             {
                 Player player = playerList[playerTurn];
                 if (player.IsInGame())
                 {
-                    Console.Clear();
-                    startX = 2;
-                    startY = 1;
-                    gui.SetWindowCursorCoords(startX, startY);
+                    bool ingame = StartTurn(gui, player, playerTurn+1);
 
-                    Console.Write("Spieler " + (playerTurn+1) + " ist am Zug.");
-                    startY++;
-                    gui.SetWindowCursorCoords(startX, startY);
-
-                    if (player.GetCarCount() > 0)
+                    if (!ingame)
                     {
-                        Car car = (Car)player.GetFirstCard();
-                        gui.ShowCard(car);
-                        startY++;
-                        gui.SetWindowCursorCoords(startX, startY);
-                        Console.Write("Welcher Wert soll verglichen werden?");
-
-                        startY++;
-                        gui.SetWindowCursorCoords(startX, startY);
-
-                        string toCompare = Console.ReadLine();
-
-                    } else
-                    {
-                        player.SetInGame(false);
-                    }              
+                        this.playerList.Remove(player);
+                        playersInGame--;
+                    }
                 }
                 playerTurn++;
 
@@ -128,11 +122,32 @@ namespace Autoquartett2
             }
         }
 
-
-
-        private int StartTurn()
+        private bool StartTurn(GUI gui, Player player, int playerId)
         {
-            return 1;
+            int y = 1;
+            if (player.GetCarCount() > 0)
+            {
+                gui.SetWindowCursorCoords(2, 1);
+
+                Console.Write("Spieler " + playerId + " ist am Zug.");
+                y++;
+                gui.SetWindowCursorCoords(2, y);
+
+                Car car = player.GetFirstCard();
+                gui.ShowCard(car);
+                y++;
+                
+                gui.SetWindowCursorCoords(2, y);
+                gui.UserInput("Welcher Wert soll verglichen werden?");
+                string toCompare = Console.ReadLine();
+            }
+            else
+            {
+                player.SetInGame(false);
+                return false;
+            }
+
+            return true;
         }
         public int GetWinner()
         {

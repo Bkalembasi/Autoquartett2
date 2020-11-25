@@ -55,6 +55,12 @@ namespace Autoquartett2
             }
         }
 
+        public void UserInput(string question)
+        {
+            SetWindowCursorCoords(2, Console.WindowHeight - 2);
+            Console.Write(question + " ");
+        }
+
         public void ShowCard(Car car)
         {
             //Kartengröße abhängig vom Fenster
@@ -62,8 +68,8 @@ namespace Autoquartett2
             int height = Convert.ToInt32(Console.WindowHeight * 0.80);
 
             //Startpunkt
-            int startPosX = Console.WindowLeft;
-            int startPosY = Console.WindowTop;
+            int startPosX = Console.CursorLeft;
+            int startPosY = Console.CursorTop;
 
             //Rand
             WriteRectangle(width, height);
@@ -71,7 +77,7 @@ namespace Autoquartett2
             string[] cardInfo = car.GetCardInformation();
             //Verschobener Startpunkt für den Inhalt der Karte
             startPosY += 1;
-            startPosX += 3;
+            startPosX += 1;
 
             //Schleife aller Informationen einer Karte
             for (int i = 0; i < cardInfo.Length; i++)
@@ -81,6 +87,12 @@ namespace Autoquartett2
                 //Doppelte Zeilensprünge, zur Übersichtlichkeit
                 startPosY++;
             }
+        }
+
+        public void ReloadWindowWithBorder()
+        {
+            Console.Clear();
+            WriteWindowBorder();
         }
 
         public void GetEndScreen()

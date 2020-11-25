@@ -82,7 +82,7 @@ namespace Autoquartett2
         /*
          * Gibt den ersten Eintrag der der Liste cars zurück (Zeigt die oberte Karte des Spielstapels an)
          */
-        public object GetFirstCard()
+        public Car GetFirstCard()
         {
             return cars.First();
         }
