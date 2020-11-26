@@ -6,7 +6,8 @@ namespace Autoquartett2
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            BusinessLogic bl = new BusinessLogic();
+            bl.StartGame();
         }
     }
 }

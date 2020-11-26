@@ -1,0 +1,222 @@
+[
+  {
+    "brand": "Mazda",
+    "model": "RX-8",
+    "carClass": "Sportwagen",
+    "acceleration": 6.5,
+    "ccm": 1308,
+    "ps": 231,
+    "consumption": 11.4,
+    "piston": 2,
+    "kmPerH": 240
+  },
+  {
+    "brand": "Jaguar",
+    "model": "S-Type",
+    "carClass": "Limousine",
+    "acceleration": 8.6,
+    "ccm": 2720,
+    "ps": 207,
+    "consumption": 8.6,
+    "piston": 6,
+    "kmPerH": 227
+  },
+  {
+    "brand": "Kia",
+    "model": "Sorento",
+    "carClass": "SUV",
+    "acceleration": 12.4,
+    "ccm": 2497,
+    "ps": 170,
+    "consumption": 8.6,
+    "piston": 4,
+    "kmPerH": 182
+  },
+  {
+    "brand": "Mercedes-Benz",
+    "model": "GLE 63 AMG",
+    "carClass": "Sport Coupe",
+    "acceleration": 4.2,
+    "ccm": 5461,
+    "ps": 585,
+    "consumption": 11.9,
+    "piston": 8,
+    "kmPerH": 280
+  },
+  {
+    "brand": "BMW",
+    "model": "840d xDrive",
+    "carClass": "Cabriolet",
+    "acceleration": 5.2,
+    "ccm": 2993,
+    "ps": 320,
+    "consumption": 7.4,
+    "piston": 6,
+    "kmPerH": 250
+  },
+  {
+    "brand": "Volkswagen",
+    "model": "Golf VIII",
+    "carClass": "Kompaktklasse",
+    "acceleration": 6.2,
+    "ccm": 1984,
+    "ps": 245,
+    "consumption": 6.5,
+    "piston": 4,
+    "kmPerH": 250
+  },
+  {
+    "brand": "Mercedes-Benz",
+    "model": "E200",
+    "carClass": "Cabriolet",
+    "acceleration": 8.1,
+    "ccm": 1991,
+    "ps": 184,
+    "consumption": 6.1,
+    "piston": 4,
+    "kmPerH": 240
+  },
+  {
+    "brand": "BMW",
+    "model": "730i E38",
+    "carClass": "Limousine",
+    "acceleration": 8.3,
+    "ccm": 2997,
+    "ps": 218,
+    "consumption": 12.9,
+    "piston": 8,
+    "kmPerH": 235
+  },
+  {
+    "brand": "BMW",
+    "model": "335i",
+    "carClass": "Limousine",
+    "acceleration": 5.6,
+    "ccm": 2979,
+    "ps": 306,
+    "consumption": 9.1,
+    "piston": 6,
+    "kmPerH": 250
+  },
+  {
+    "brand": "BMW",
+    "model": "M135i F20",
+    "carClass": "Kompaktklasse",
+    "acceleration": 5.1,
+    "ccm": 2979,
+    "ps": 320,
+    "consumption": 8.0,
+    "piston": 6,
+    "kmPerH": 250
+  },
+  {
+    "brand": "BMW",
+    "model": "335d E92",
+    "carClass": "Limousine",
+    "acceleration": 6.0,
+    "ccm": 2993,
+    "ps": 286,
+    "consumption": 6.7,
+    "piston": 6,
+    "kmPerH": 250
+  },
+  {
+    "brand": "Audi",
+    "model": "A6 3.0 TFSI",
+    "carClass": "Limousine",
+    "acceleration": 5.5,
+    "ccm": 2995,
+    "ps": 300,
+    "consumption": 8.2,
+    "piston": 6,
+    "kmPerH": 250
+  },
+  {
+    "brand": "Audi",
+    "model": "A8 55 TFSI",
+    "carClass": "Limousine",
+    "acceleration": 5.6,
+    "ccm": 2995,
+    "ps": 340,
+    "consumption": 7.5,
+    "piston": 8,
+    "kmPerH": 250
+  },
+  {
+    "brand": "Mercedes-Benz",
+    "model": "S500 4MATIC",
+    "carClass": "Limousine",
+    "acceleration": 4.9,
+    "ccm": 2999,
+    "ps": 435,
+    "consumption": 8.4,
+    "piston": 6,
+    "kmPerH": 250
+  },
+  {
+    "brand": "BMW",
+    "model": "X5 xDrive50i G05",
+    "carClass": "SUV",
+    "acceleration": 4.3,
+    "ccm": 4395,
+    "ps": 462,
+    "consumption": 11.6,
+    "piston": 8,
+    "kmPerH": 250
+  },
+  {
+    "brand": "Audi",
+    "model": "A3 35 TFSI",
+    "carClass": "Kompaktklasse",
+    "acceleration": 8.7,
+    "ccm": 1498,
+    "ps": 150,
+    "consumption": 5.5,
+    "piston": 4,
+    "kmPerH": 232
+  },
+  {
+    "brand": "Audi",
+    "model": "A3 35 TFSI",
+    "carClass": "Kompaktklasse",
+    "acceleration": 8.7,
+    "ccm": 1498,
+    "ps": 150,
+    "consumption": 5.5,
+    "piston": 4,
+    "kmPerH": 232
+  },
+  {
+    "brand": "Mazda",
+    "model": "MX-5",
+    "carClass": "Roadster",
+    "acceleration": 8.7,
+    "ccm": 1840,
+    "ps": 131,
+    "consumption": 9.1,
+    "piston": 4,
+    "kmPerH": 197
+  },
+  {
+    "brand": "BMW",
+    "model": "Z4 E89",
+    "carClass": "Roadster",
+    "acceleration": 8.7,
+    "ccm": 2979,
+    "ps": 306,
+    "consumption": 9.4,
+    "piston": 6,
+    "kmPerH": 250
+  },
+  {
+    "brand": "Mercedes-Benz",
+    "model": "C205",
+    "carClass": "Coupe",
+    "acceleration": 8.7,
+    "ccm": 1840,
+    "ps": 131,
+    "consumption": 9.1,
+    "piston": 4,
+    "kmPerH": 197
+  }
+]
