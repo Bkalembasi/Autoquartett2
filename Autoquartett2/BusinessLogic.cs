@@ -140,6 +140,7 @@ namespace Autoquartett2
                 gui.SetWindowCursorCoords(2, y);
                 gui.UserInput("Welcher Wert soll verglichen werden?");
                 string toCompare = Console.ReadLine();
+                CompareCards(toCompare);
             }
             else
             {
@@ -148,6 +149,39 @@ namespace Autoquartett2
             }
 
             return true;
+        }
+
+        private void CompareCards(string toCompare)
+        {
+            //TODO winnerIndex durch CompareCars Methode herausfinden
+            List<Car> carsToCompare = GetCardsToCompare();
+            int winnerIndex = 0;
+            
+            while (winnerIndex < 0)
+            {
+                List<Car> stingList = GetCardsToCompare();
+                winnerIndex = 0;
+
+                foreach(Car car in stingList)
+                {
+                    carsToCompare.Add(car);
+                }       
+            }
+            foreach (Car car in carsToCompare)
+            {
+                this.playerList[winnerIndex].AddCar(car);
+            }
+        }
+
+        private List<Car> GetCardsToCompare()
+        {
+            List<Car> carsToCompare = new List<Car>();
+            foreach (Player player in this.playerList)
+            {
+                carsToCompare.Add(player.GetFirstCard());
+                player.RemoveCard();
+            }
+            return carsToCompare;
         }
         public int GetWinner()
         {
