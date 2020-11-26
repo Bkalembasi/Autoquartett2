@@ -103,6 +103,7 @@ namespace Autoquartett2
         public void WriteWindowBorder()
         {
             WriteRectangle(Console.WindowWidth, Console.WindowHeight);
+            SetWindowCursorCoords(0, 0);
         }
     }
 }

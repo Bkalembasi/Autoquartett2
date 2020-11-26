@@ -11,46 +11,79 @@ namespace Autoquartett2
         private bool computer;
         private List<Player> playerList = new List<Player>();
 
+        /**
+         * Setter für die Spieler Anzahl 
+         */
         public void SetPlayerCount(int ParamPlayerCount)
         {
             playerCount = ParamPlayerCount;
         }
+
+        /**
+         * Getter für die Spieler Anzahl
+         */
         public int GetPlayerCount()
         {
             return playerCount;
         }
+        /**
+         * Setter Computer Anzahl
+         */
         public void SetComputerCount(int ParamComputerCount)
         {
             computerCount = ParamComputerCount;
         }
+        /**
+         * Getter Computer Anzahl
+         */
         public int GetComputerCount()
         {
             return computerCount;
         }
+        /**
+         * Setzt einen boolean der angibt ob es KIs  gibt
+         */
         public void SetComputer(bool ParamComputer)
         {
             computer = ParamComputer;
         }
+        /**
+         * Getter ob Computer vorhanden sind
+         */
         public bool GetComputer()
         {
             return computer;
         }
         public void StartGame()
         {
-            int startX = 2;
-            int startY = 1;
+            //Cursor Koordinaten
+            int startX;
+            int startY;
 
+            //Oberflächen Objekt initialisiert, Rand erstellt
             GUI gui = new GUI();
-            gui.WriteWindowBorder();
-            gui.SetWindowCursorCoords(startX, startY);
 
-            Console.Write("Mit wie vielen Spielern soll gespielt werden?");
+            do
+            {
+                startX = 2;
+                startY = 1;
+                Console.Clear();
 
-            startY++;
+                //Bildschirmrand erstellung
+                gui.WriteWindowBorder();
+                gui.SetWindowCursorCoords(startX, startY);
 
-            gui.SetWindowCursorCoords(startX, startY);
-            playerCount = Convert.ToInt32(Console.ReadLine());
+                Console.Write("Mit wie vielen Spielern soll gespielt werden? (2-4)");
 
+                startY++;
+
+                gui.SetWindowCursorCoords(startX, startY);
+                playerCount = Convert.ToInt32(Console.ReadLine());
+
+                //Gibt der User mehr als 4 User an wird die Eingabe wiederholt
+            } while (playerCount > 4);
+
+            //Sind die Spieler weniger als 4 bekommt der Benutzer die Option mit Computern zu spielen
             if (playerCount < 4)
             {
                 startY++;
@@ -59,27 +92,39 @@ namespace Autoquartett2
 
                 startY++;
                 gui.SetWindowCursorCoords(startX, startY);
-                if("y".Equals(Console.ReadLine().ToLower()))
+
+                //Computer Einstellung
+                if ("y".Equals(Console.ReadLine().ToLower()))
                 {
                     computerCount = 4 - playerCount;
                     computer = true;
                 }
             }
 
+            if (playerCount == 1)
+            {
+                //TODO endgame
+            }
+
+            //Spieler Liste
             CreatePlayerList();
 
+            //Initialisierung des Decks
             Deck deck = new Deck();
             deck.ShuffleCars();
+            //Verteilen der Karten
             deck.DistributeCars(this.playerList);
 
             PlayGame(gui);
         }
         private void CreatePlayerList()
         {
-            for (int i = 0; i < 4; i++)
+            for (int i = 0; i < this.playerCount; i++)
             {
                 Player player = new Player();
                 player.SetInGame(true);
+
+                //Setzt das Objekt Spieler als Computer fest
                 if (this.computer && this.playerCount > i)
                 {
                     player.setKI(true);
@@ -99,13 +144,16 @@ namespace Autoquartett2
 
             gui.ReloadWindowWithBorder();
 
+            //So lange mehr als ein Spieler im Spiel ist wird das Spiel fortgesetzt
             while (playersInGame > 1)
             {
                 Player player = playerList[playerTurn];
+                //Prüft ob der Spieler noch im spiel ist
                 if (player.IsInGame())
                 {
-                    bool ingame = StartTurn(gui, player, playerTurn+1);
+                    bool ingame = StartTurn(gui, player, playerTurn + 1);
 
+                    //Entfernt den Spieler aus der Liste und redurziert die Spieler Anzahl
                     if (!ingame)
                     {
                         this.playerList.Remove(player);
@@ -114,11 +162,13 @@ namespace Autoquartett2
                 }
                 playerTurn++;
 
+                //Resetten des Zug index
                 if (playerTurn > playersInGame)
                 {
                     playerTurn = 0;
                 }
             }
+            //Spiel Ende
             EndGame(gui);
         }
 
@@ -130,11 +180,7 @@ namespace Autoquartett2
             int y = 1;
             gui.SetWindowCursorCoords(2, 1);
 
-            Console.Write("Spieler " + winnerIndex + " hat gewonnen!");
-            y++;
-            gui.SetWindowCursorCoords(2, y);
-
-            Console.Write("");
+            Console.Write("Spieler " + winnerIndex + " hat gewonnen");
             y++;
             gui.SetWindowCursorCoords(2, y);
 
@@ -156,14 +202,14 @@ namespace Autoquartett2
             {
                 gui.SetWindowCursorCoords(2, 1);
 
-                Console.Write("Spieler " + playerId + " ist am Zug. " + player.GetLengthCarList()  + " sind noch übrig.");
+                Console.Write("Spieler " + playerId + " (Karten: " + player.GetLengthCarList() + ") ist am Zug. ");
                 y++;
                 gui.SetWindowCursorCoords(2, y);
 
                 Car car = player.GetFirstCard();
                 gui.ShowCard(car);
                 y++;
-                
+
                 gui.SetWindowCursorCoords(2, y);
                 gui.UserInput("Welcher Wert soll verglichen werden?");
                 string toCompare = Console.ReadLine();
@@ -199,7 +245,9 @@ namespace Autoquartett2
                 this.playerList[winnerIndex].AddCar(car);
             }
         }
-
+        /**
+        * Nimmt sich die Obersten Karten von den Spielern und speichert sie in einer Liste
+        */
         private List<Car> GetCardsToCompare()
         {
             List<Car> carsToCompare = new List<Car>();
