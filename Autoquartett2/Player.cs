@@ -94,5 +94,10 @@ namespace Autoquartett2
         {
             return inGame;
         }
+
+        public int GetLengthCarList()
+        {
+            return this.cars.Count;
+        }
     }
 }

@@ -130,7 +130,7 @@ namespace Autoquartett2
             int y = 1;
             gui.SetWindowCursorCoords(2, 1);
 
-            Console.Write("Spieler " + winnerIndex + " hat gewonnen");
+            Console.Write("Spieler " + winnerIndex + " hat gewonnen!");
             y++;
             gui.SetWindowCursorCoords(2, y);
 
@@ -156,7 +156,7 @@ namespace Autoquartett2
             {
                 gui.SetWindowCursorCoords(2, 1);
 
-                Console.Write("Spieler " + playerId + " ist am Zug.");
+                Console.Write("Spieler " + playerId + " ist am Zug. " + player.GetLengthCarList()  + " sind noch übrig.");
                 y++;
                 gui.SetWindowCursorCoords(2, y);
 
