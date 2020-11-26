@@ -133,31 +133,32 @@ namespace Autoquartett2
             return carInfo;
         }
 
-        public static double Comparison(double[] values, bool higherNumber)
+        public static int Comparison(double[] values, bool higherNumber)
         {
-            double tempHighest = 0;
-            double tempLowest = 0;
+            int playerIndex = 0;
+            double tempNumber = 0;
 
             for (int i = 0; i < values.Length; i++)
             {
-                if (values[i] > tempHighest)
+                if (higherNumber)
                 {
-                    tempHighest = values[i];
+                    if (tempNumber < values[i])
+                    {
+                        tempNumber = values[i];
+                        playerIndex = i;
+                    }
                 }
-                else if (values[i] < tempLowest)
+                else 
                 {
-                    tempLowest = values[i];
+                    if (tempNumber > values[i])
+                    {
+                        tempNumber = values[i];
+                        playerIndex = i;
+                    }
                 }
             }
 
-            if (higherNumber)
-            {
-                return tempHighest;
-            }
-            else
-            {
-                return tempLowest;
-            }
+            return playerIndex;
         }
 
         public override string ToString()

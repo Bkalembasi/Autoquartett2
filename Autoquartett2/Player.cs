@@ -76,7 +76,7 @@ namespace Autoquartett2
          */
         public void RemoveCard()
         {
-            cars.RemoveFirst();
+            this.cars.RemoveFirst();
         }
 
         /*

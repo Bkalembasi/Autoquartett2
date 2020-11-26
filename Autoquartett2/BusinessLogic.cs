@@ -163,7 +163,7 @@ namespace Autoquartett2
                 playerTurn++;
 
                 //Resetten des Zug index
-                if (playerTurn > playersInGame)
+                if (playerTurn >= playersInGame)
                 {
                     playerTurn = 0;
                 }
@@ -176,11 +176,12 @@ namespace Autoquartett2
         {
             int winnerIndex = GetWinner();
             this.playerList[winnerIndex].AddWin();
+            gui.ReloadWindowWithBorder();
 
             int y = 1;
             gui.SetWindowCursorCoords(2, 1);
-
-            Console.Write("Spieler " + winnerIndex + " hat gewonnen");
+            
+            Console.Write("Spieler " + (winnerIndex + 1) + " hat gewonnen");
             y++;
             gui.SetWindowCursorCoords(2, y);
 
@@ -200,6 +201,7 @@ namespace Autoquartett2
             int y = 1;
             if (player.GetCarCount() > 0)
             {
+                gui.ReloadWindowWithBorder();
                 gui.SetWindowCursorCoords(2, 1);
 
                 Console.Write("Spieler " + playerId + " (Karten: " + player.GetLengthCarList() + ") ist am Zug. ");
@@ -212,7 +214,6 @@ namespace Autoquartett2
 
                 gui.SetWindowCursorCoords(2, y);
                 gui.UserInput("Welcher Wert soll verglichen werden?");
-                string toCompare = Console.ReadLine();
                 CompareCards();
             }
             else
@@ -227,18 +228,18 @@ namespace Autoquartett2
         private void CompareCards()
         {
             List<Car> carsToCompare = GetCardsToCompare();
-            int winnerIndex = 0;
-            
+            int winnerIndex = GetInput(carsToCompare);
             while (winnerIndex < 0)
             {
                 List<Car> stingList = GetCardsToCompare();
-                winnerIndex = Convert.ToInt32(GetInput(stingList));
+                winnerIndex = GetInput(stingList);
 
-                foreach(Car car in stingList)
+                foreach (Car car in stingList)
                 {
                     carsToCompare.Add(car);
-                }       
-            }
+                }
+            } 
+            //Karten werden dem winnerIndex zugeschrieben
             foreach (Car car in carsToCompare)
             {
                 this.playerList[winnerIndex].AddCar(car);
@@ -252,6 +253,11 @@ namespace Autoquartett2
             List<Car> carsToCompare = new List<Car>();
             foreach (Player player in this.playerList)
             {
+                if (player.GetCarCount() < 1)
+                {
+                    continue;
+                }
+
                 carsToCompare.Add(player.GetFirstCard());
                 player.RemoveCard();
             }
@@ -276,7 +282,7 @@ namespace Autoquartett2
             return Console.ReadLine();
         }
 
-        public double GetInput(List<Car> carList)
+        public int GetInput(List<Car> carList)
         {
             bool higherNumber = true;
             string playerInput;
@@ -326,7 +332,7 @@ namespace Autoquartett2
             
 
         }
-        public double FillArray(int value, bool higherNumber, List<Car> carList) 
+        public int FillArray(int value, bool higherNumber, List<Car> carList) 
         {
             double[] values = new double[4];
             for (int j = 0; j < carList.Count; j++) {
@@ -357,9 +363,7 @@ namespace Autoquartett2
                         break;
                 }
             }
-            double erg = Car.Comparison(values, higherNumber);
-
-            return erg;
+            return Car.Comparison(values, higherNumber);
         }              
     }
 }
