@@ -86,5 +86,137 @@
     "consumption": 12.9,
     "piston": 8,
     "kmPerH": 235
+  },
+  {
+    "brand": "BMW",
+    "model": "335i",
+    "carClass": "Limousine",
+    "acceleration": 5.6,
+    "ccm": 2979,
+    "ps": 306,
+    "consumption": 9.1,
+    "piston": 6,
+    "kmPerH": 250
+  },
+  {
+    "brand": "BMW",
+    "model": "M135i F20",
+    "carClass": "Kompaktklasse",
+    "acceleration": 5.1,
+    "ccm": 2979,
+    "ps": 320,
+    "consumption": 8.0,
+    "piston": 6,
+    "kmPerH": 250
+  },
+  {
+    "brand": "BMW",
+    "model": "335d E92",
+    "carClass": "Limousine",
+    "acceleration": 6.0,
+    "ccm": 2993,
+    "ps": 286,
+    "consumption": 6.7,
+    "piston": 6,
+    "kmPerH": 250
+  },
+  {
+    "brand": "Audi",
+    "model": "A6 3.0 TFSI",
+    "carClass": "Limousine",
+    "acceleration": 5.5,
+    "ccm": 2995,
+    "ps": 300,
+    "consumption": 8.2,
+    "piston": 6,
+    "kmPerH": 250
+  },
+  {
+    "brand": "Audi",
+    "model": "A8 55 TFSI",
+    "carClass": "Limousine",
+    "acceleration": 5.6,
+    "ccm": 2995,
+    "ps": 340,
+    "consumption": 7.5,
+    "piston": 8,
+    "kmPerH": 250
+  },
+  {
+    "brand": "Mercedes-Benz",
+    "model": "S500 4MATIC",
+    "carClass": "Limousine",
+    "acceleration": 4.9,
+    "ccm": 2999,
+    "ps": 435,
+    "consumption": 8.4,
+    "piston": 6,
+    "kmPerH": 250
+  },
+  {
+    "brand": "BMW",
+    "model": "X5 xDrive50i G05",
+    "carClass": "SUV",
+    "acceleration": 4.3,
+    "ccm": 4395,
+    "ps": 462,
+    "consumption": 11.6,
+    "piston": 8,
+    "kmPerH": 250
+  },
+  {
+    "brand": "Audi",
+    "model": "A3 35 TFSI",
+    "carClass": "Kompaktklasse",
+    "acceleration": 8.7,
+    "ccm": 1498,
+    "ps": 150,
+    "consumption": 5.5,
+    "piston": 4,
+    "kmPerH": 232
+  },
+  {
+    "brand": "Audi",
+    "model": "A3 35 TFSI",
+    "carClass": "Kompaktklasse",
+    "acceleration": 8.7,
+    "ccm": 1498,
+    "ps": 150,
+    "consumption": 5.5,
+    "piston": 4,
+    "kmPerH": 232
+  },
+  {
+    "brand": "Mazda",
+    "model": "MX-5",
+    "carClass": "Roadster",
+    "acceleration": 8.7,
+    "ccm": 1840,
+    "ps": 131,
+    "consumption": 9.1,
+    "piston": 4,
+    "kmPerH": 197
+  },
+  {
+    "brand": "BMW",
+    "model": "Z4 E89",
+    "carClass": "Roadster",
+    "acceleration": 8.7,
+    "ccm": 2979,
+    "ps": 306,
+    "consumption": 9.4,
+    "piston": 6,
+    "kmPerH": 250
+  },
+  {
+    "brand": "Mercedes-Benz",
+    "model": "C205",
+    "carClass": "Coupe",
+    "acceleration": 8.7,
+    "ccm": 1840,
+    "ps": 131,
+    "consumption": 9.1,
+    "piston": 4,
+    "kmPerH": 197
   }
 ]
