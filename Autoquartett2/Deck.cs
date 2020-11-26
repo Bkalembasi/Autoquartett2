@@ -50,9 +50,10 @@ namespace Autoquartett2
             List<Car> tempCars = new List<Car>();
             for(int i = 0; i < cars.Count; i++)
             {
-                tempCars[i] = cars.ElementAt(i);
+                tempCars.Add(cars.ElementAt(i));
             }
             Random rng = new Random();
+
             for (int i = cars.Count; i > 0; i--)
             {
                 SwapCard(tempCars, 0, rng.Next(0, i));
@@ -60,8 +61,9 @@ namespace Autoquartett2
             cars.Clear();
             for(int i = 0; i < tempCars.Count; i++)
             {
-                cars.AddFirst(tempCars[i]);
+                cars.AddLast(tempCars[i]);
             }
+            
         }
 
         /*
