@@ -118,8 +118,35 @@ namespace Autoquartett2
                 {
                     playerTurn = 0;
                 }
-
             }
+            EndGame(gui);
+        }
+
+        private void EndGame(GUI gui)
+        {
+            int winnerIndex = GetWinner();
+            this.playerList[winnerIndex].AddWin();
+
+            int y = 1;
+            gui.SetWindowCursorCoords(2, 1);
+
+            Console.Write("Spieler " + winnerIndex + " hat gewonnen");
+            y++;
+            gui.SetWindowCursorCoords(2, y);
+
+            Console.Write("");
+            y++;
+            gui.SetWindowCursorCoords(2, y);
+
+            Console.Write("Neues Spiel? (y/n)");
+            y++;
+            gui.SetWindowCursorCoords(2, y);
+
+            if ("y".Equals(Console.ReadLine().ToLower()))
+            {
+                StartGame();
+            }
+
         }
 
         private bool StartTurn(GUI gui, Player player, int playerId)
@@ -185,8 +212,18 @@ namespace Autoquartett2
         }
         public int GetWinner()
         {
-            return 1;
+            int playerIndex = 0;
+            for(int i = 0; i < playerList.Count; i++)
+            {
+                Player player = this.playerList[i];
+                if(player.GetCarCount() > 0 )
+                {
+                    playerIndex = i;
+                }
+            }
+            return playerIndex;
         }
+    
         public string GetPlayerInput()
         {
             return Console.ReadLine();
