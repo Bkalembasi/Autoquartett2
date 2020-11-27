@@ -218,5 +218,138 @@
     "consumption": 9.1,
     "piston": 4,
     "kmPerH": 197
+  },
+  {
+    "brand": "Chevrolet",
+    "model": "Impala SS",
+    "carClass": "Limousine",
+    "acceleration": 15.5,
+    "ccm": 6490,
+    "ps": 330,
+    "consumption": 13.7,
+    "piston": 8,
+    "kmPerH": 160
+  },
+  {
+    "brand": "Audi",
+    "model": "SQ7 TFSI",
+    "carClass": "SUV",
+    "acceleration": 4.1,
+    "ccm": 3996,
+    "ps": 507,
+    "consumption": 12.1,
+    "piston": 8,
+    "kmPerH": 250
+  },
+  {
+    "brand": "BMW",
+    "model": "sDrive20i",
+    "carClass": "SUV",
+    "acceleration": 8.3,
+    "ccm": 1998,
+    "ps": 184,
+    "consumption": 7.4,
+    "piston": 4,
+    "kmPerH": 215
+  },
+  {
+    "brand": "BMW",
+    "model": "M40i",
+    "carClass": "SUV",
+    "acceleration": 4.8,
+    "ccm": 2998,
+    "ps": 354,
+    "consumption": 8.2,
+    "piston": 6,
+    "kmPerH": 250
+  },
+  {
+    "brand": "BMW",
+    "model": "520i",
+    "carClass": "Limousine",
+    "acceleration": 7.8,
+    "ccm": 1998,
+    "ps": 184,
+    "consumption": 5.9,
+    "piston": 4,
+    "kmPerH": 225
+  },
+  {
+    "brand": "BMW",
+    "model": "540i",
+    "carClass": "Limousine",
+    "acceleration": 5.2,
+    "ccm": 2998,
+    "ps": 340,
+    "consumption": 6.5,
+    "piston": 6,
+    "kmPerH": 250
+  },
+  {
+    "brand": "BMW",
+    "model": "318i",
+    "carClass": "Limousine",
+    "acceleration": 8.4,
+    "ccm": 1998,
+    "ps": 156,
+    "consumption": 5.3,
+    "piston": 4,
+    "kmPerH": 223
+  },
+  {
+    "brand": "Mercedes-Benz",
+    "model": "E300",
+    "carClass": "Limousine",
+    "acceleration": 7.7,
+    "ccm": 1991,
+    "ps": 245,
+    "consumption": 6.4,
+    "piston": 4,
+    "kmPerH": 250
+  },
+  {
+    "brand": "Mercedes-Benz",
+    "model": "ML300 4MATIC",
+    "carClass": "SUV",
+    "acceleration": 8.5,
+    "ccm": 3498,
+    "ps": 252,
+    "consumption": 8.8,
+    "piston": 6,
+    "kmPerH": 235
+  },
+  {
+    "brand": "Mercedes-Benz",
+    "model": "ML 63 AMG",
+    "carClass": "SUV",
+    "acceleration": 4.8,
+    "ccm": 5461,
+    "ps": 525,
+    "consumption": 11.8,
+    "piston": 8,
+    "kmPerH": 280
+  },
+  {
+    "brand": "Ford",
+    "model": "Shelby GT500 ",
+    "carClass": "Limousine",
+    "acceleration": 3.5,
+    "ccm": 5134,
+    "ps": 771,
+    "consumption": 14.7,
+    "piston": 8,
+    "kmPerH": 290
+  },
+  {
+    "brand": "Ford",
+    "model": "Mustang 2.3 EcoBoost",
+    "carClass": "Limousine",
+    "acceleration": 5.8,
+    "ccm": 2261,
+    "ps": 317,
+    "consumption": 8.0,
+    "piston": 4,
+    "kmPerH": 233
   }
+
 ]
