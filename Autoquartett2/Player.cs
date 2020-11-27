@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Autoquartett2
 {
-    class Player
+    public class Player
     {
         /*
          * Eigenes Deck des Spielers.

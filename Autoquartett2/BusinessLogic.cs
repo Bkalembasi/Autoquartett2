@@ -212,7 +212,7 @@ namespace Autoquartett2
 
                 gui.SetWindowCursorCoords(2, y);
                 gui.UserInput("Welcher Wert soll verglichen werden?");
-                CompareCards();
+                CompareCards(player);
             }
             else
             {
@@ -223,14 +223,14 @@ namespace Autoquartett2
             return true;
         }
 
-        private void CompareCards()
+        private void CompareCards(Player player)
         {
             List<Car> carsToCompare = GetCardsToCompare();
-            int winnerIndex = GetInput(carsToCompare);
+            int winnerIndex = GetInput(carsToCompare, player);
             while (winnerIndex < 0)
             {
                 List<Car> stingList = GetCardsToCompare();
-                winnerIndex = GetInput(stingList);
+                winnerIndex = GetInput(stingList, player);
 
                 foreach (Car car in stingList)
                 {
@@ -280,13 +280,24 @@ namespace Autoquartett2
             return Console.ReadLine();
         }
 
-        public int GetInput(List<Car> carList)
+        public int GetInput(List<Car> carList, Player player)
         {
             bool higherNumber = true;
-            string playerInput;
+            string playerInput = "";
             int stringValue;
 
-            playerInput = Console.ReadLine().ToLower();
+
+
+            if (player.isKI())
+            {
+                Random rng = new Random();
+
+                playerInput = System.Convert.ToString(rng.Next(0, 7));
+            }
+            else
+            {
+                playerInput = Console.ReadLine().ToLower();
+            }
 
             switch (playerInput)
             {
