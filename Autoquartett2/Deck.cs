@@ -84,7 +84,7 @@ namespace Autoquartett2
             {
             int toMuch = cars.Count % playerList.Count();
 
-            for (int i = 0; i < (playerList.Count() - toMuch); i++)
+            for (int i = 0; i < (cars.Count() - toMuch); i++)
             {
                 int playerNumber = i % playerList.Count();
                 playerList.ElementAt(playerNumber).AddCar(cars.ElementAt(i));

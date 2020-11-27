@@ -25,6 +25,17 @@ namespace Autoquartett2
          * Zeigt an, ob der Spieler der Computer ist
          */
         private bool kI;
+        private int playerId;
+
+        public int GetPlayerId()
+        {
+            return this.playerId;
+        }
+
+        public void SetPlayerId(int playerId)
+        {
+            this.playerId = playerId;
+        }
 
         /*
          * Setz den Wert kI auf true oder talse
@@ -76,7 +87,7 @@ namespace Autoquartett2
          */
         public void RemoveCard()
         {
-            cars.RemoveFirst();
+            this.cars.RemoveFirst();
         }
 
         /*
@@ -98,6 +109,14 @@ namespace Autoquartett2
         public int GetLengthCarList()
         {
             return this.cars.Count;
+        }
+
+        /*
+         * Entfernt alle Karten aus dem Deck des Spielers.
+         */
+        public void RemoveAllCards()
+        {
+            cars.Clear();
         }
     }
 }
