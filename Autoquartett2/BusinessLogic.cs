@@ -101,11 +101,6 @@ namespace Autoquartett2
                 }
             }
 
-            if (playerCount == 1)
-            {
-                //TODO endgame
-            }
-
             //Spieler Liste
             CreatePlayerList();
 
