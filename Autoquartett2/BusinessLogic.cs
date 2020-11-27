@@ -292,7 +292,7 @@ namespace Autoquartett2
             {
                 Random rng = new Random();
 
-                playerInput = System.Convert.ToString(rng.Next(0, 7));
+                playerInput = System.Convert.ToString(rng.Next(1, 7));
             }
             else
             {
