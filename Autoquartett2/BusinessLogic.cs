@@ -118,6 +118,7 @@ namespace Autoquartett2
             {
                 Player player = new Player();
                 player.SetInGame(true);
+                player.SetPlayerId(i + 1);
 
                 //Setzt das Objekt Spieler als Computer fest
                 if (this.computer && this.playerCount > i)
@@ -136,17 +137,18 @@ namespace Autoquartett2
         {
             int playersInGame = playerCount + computerCount;
             int playerTurn = 0;
+            Player player = new Player();
 
             gui.ReloadWindowWithBorder();
 
             //So lange mehr als ein Spieler im Spiel ist wird das Spiel fortgesetzt
             while (playersInGame > 1)
             {
-                Player player = playerList[playerTurn];
+                player = playerList[playerTurn];
                 //Prüft ob der Spieler noch im spiel ist
                 if (player.IsInGame())
                 {
-                    bool ingame = StartTurn(gui, player, playerTurn + 1);
+                    bool ingame = StartTurn(gui, player);
 
                     //Entfernt den Spieler aus der Liste und redurziert die Spieler Anzahl
                     if (!ingame)
@@ -163,11 +165,12 @@ namespace Autoquartett2
                     playerTurn = 0;
                 }
             }
+            player = this.playerList[0];
             //Spiel Ende
-            EndGame(gui);
+            EndGame(gui , player);
         }
 
-        private void EndGame(GUI gui)
+        private void EndGame(GUI gui, Player player)
         {
             int winnerIndex = GetWinner();
             this.playerList[winnerIndex].AddWin();
@@ -176,7 +179,7 @@ namespace Autoquartett2
             int y = 1;
             gui.SetWindowCursorCoords(2, 1);
             
-            Console.Write("Spieler " + (winnerIndex + 1) + " hat gewonnen");
+            Console.Write("Spieler " + player.GetPlayerId() + " hat gewonnen");
             y++;
             gui.SetWindowCursorCoords(2, y);
 
@@ -191,7 +194,7 @@ namespace Autoquartett2
 
         }
 
-        private bool StartTurn(GUI gui, Player player, int playerId)
+        private bool StartTurn(GUI gui, Player player)
         {
             int y = 1;
             if (player.GetCarCount() > 0)
@@ -199,7 +202,7 @@ namespace Autoquartett2
                 gui.ReloadWindowWithBorder();
                 gui.SetWindowCursorCoords(2, 1);
 
-                Console.Write("Spieler " + playerId + " (Karten: " + player.GetLengthCarList() + ") ist am Zug. ");
+                Console.Write("Spieler " + player.GetPlayerId() + " (Karten: " + player.GetLengthCarList() + ") ist am Zug. ");
                 y++;
                 gui.SetWindowCursorCoords(2, y);
 
