@@ -212,7 +212,7 @@ namespace Autoquartett2
 
                 gui.SetWindowCursorCoords(2, y);
                 gui.UserInput("Welcher Wert soll verglichen werden?");
-                CompareCards();
+                CompareCards(gui);
             }
             else
             {
@@ -223,14 +223,14 @@ namespace Autoquartett2
             return true;
         }
 
-        private void CompareCards()
+        private void CompareCards(GUI gui)
         {
             List<Car> carsToCompare = GetCardsToCompare();
-            int winnerIndex = GetInput(carsToCompare);
+            int winnerIndex = GetInput(carsToCompare, gui);
             while (winnerIndex < 0)
             {
                 List<Car> stingList = GetCardsToCompare();
-                winnerIndex = GetInput(stingList);
+                winnerIndex = GetInput(stingList, gui);
 
                 foreach (Car car in stingList)
                 {
@@ -280,12 +280,11 @@ namespace Autoquartett2
             return Console.ReadLine();
         }
 
-        public int GetInput(List<Car> carList)
+        public int GetInput(List<Car> carList, GUI gui)
         {
             bool higherNumber = true;
             string playerInput;
             int stringValue;
-
             playerInput = Console.ReadLine().ToLower();
 
             switch (playerInput)
@@ -295,73 +294,97 @@ namespace Autoquartett2
                     higherNumber = false;
                     stringValue = 1;
                     break;
-
                 case "2":
                 case "hubraum":
                     stringValue = 2;
                     break;
-
                 case "3":
                 case "verbrauch":
                     higherNumber = false;
                     stringValue = 3;
                     break;
-
                 case "4":
                 case "geschwindigkeit":
                     stringValue = 4;
                     break;
-
                 case "5":
                 case "leistung":
                     stringValue = 5;
                     break;
-
                 case "6":
                 case "zylinder":
                     stringValue = 6;
                     break;
-
                 default:
                     stringValue = 0;
                     break;
             }
-            return FillArray(stringValue, higherNumber, carList);
-            
-
+            return FillArray(stringValue, higherNumber, carList, gui);
         }
-        public int FillArray(int value, bool higherNumber, List<Car> carList) 
+        public int FillArray(int value, bool higherNumber, List<Car> carList, GUI gui)
         {
             double[] values = new double[4];
-            for (int j = 0; j < carList.Count; j++) {
+            string stringValue = "mäh";
+
+            for (int j = 0; j < carList.Count; j++)
+            {
                 switch (value)
                 {
                     case 1:
                         values[j] = carList[j].GetAcceleration();
+                        stringValue = "Beschleunigung";
                         break;
 
                     case 2:
-                        values[j] = carList[j].GetPiston();
+                        values[j] = carList[j].GetCcm();
+                        stringValue = "Ccm";
                         break;
 
                     case 3:
                         values[j] = carList[j].GetConsumption();
+                        stringValue = "Verbrauch";
                         break;
 
                     case 4:
                         values[j] = carList[j].GetKmPerH();
+                        stringValue = "Geschwindigkeit";
                         break;
 
                     case 5:
                         values[j] = carList[j].GetPs();
+                        stringValue = "Leistung";
                         break;
 
                     case 6:
                         values[j] = carList[j].GetPiston();
+                        stringValue = "Zylinder";
                         break;
                 }
             }
-            return Car.Comparison(values, higherNumber);
-        }              
+
+            int erg = Car.Comparison(values, higherNumber);
+            WriteValues(stringValue, values, carList, gui, erg);
+
+            return erg;
+        }
+
+        public void WriteValues(string stringValue, double[] values, List<Car> carList, GUI gui, int winner)
+        {
+            int xKoord = Convert.ToInt32(Console.WindowWidth * 0.7);
+            int yKoord = 2;
+
+            for (int j = 0; j < carList.Count; j++)
+            {
+                gui.SetWindowCursorCoords(xKoord, yKoord);
+                Console.Write("Spieler " + (j + 1) + ": " + stringValue + " " + values[j]);
+                yKoord++;
+            }
+
+            gui.SetWindowCursorCoords(xKoord, yKoord);
+            Console.Write("Sieger: Spieler " + (winner + 1));
+
+            Console.ReadLine();
+        }
     }
 }
+    
