@@ -123,12 +123,12 @@ namespace Autoquartett2
             carInfo[0] = "Marke: " + GetBrand();
             carInfo[1] = "Modell: " + GetModel();
             carInfo[2] = "Klasse: " + GetCarClass();
-            carInfo[3] = "Km/H: " + GetKmPerH();
-            carInfo[4] = "PS: " + GetPs();
-            carInfo[5] = "Verbrauch: " + GetConsumption();
-            carInfo[6] = "Hubraum: " + GetCcm();
-            carInfo[7] = "Anz. Zylinder: " + GetPiston();
-            carInfo[8] = "Beschleunigung: " + GetAcceleration();
+            carInfo[3] = "(1) Beschleunigung: " + GetAcceleration();
+            carInfo[4] = "(2) Hubraum: " + GetCcm();
+            carInfo[5] = "(3) Verbrauch: " + GetConsumption();
+            carInfo[6] = "(4) Hm/H: " + GetKmPerH();
+            carInfo[7] = "(5) PS: " + GetPs();
+            carInfo[8] = "(6) Zylinder: " + GetPiston();
 
             return carInfo;
         }
@@ -136,7 +136,7 @@ namespace Autoquartett2
         public static int Comparison(double[] values, bool higherNumber)
         {
             int playerIndex = 0;
-            double tempNumber = 0;
+            double tempNumber = values[0];
 
             for (int i = 0; i < values.Length; i++)
             {
