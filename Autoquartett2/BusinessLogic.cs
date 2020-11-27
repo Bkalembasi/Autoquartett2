@@ -114,14 +114,14 @@ namespace Autoquartett2
         }
         private void CreatePlayerList()
         {
-            for (int i = 0; i < this.playerCount; i++)
+            for (int i = 0; i < (this.playerCount + this.computerCount); i++)
             {
                 Player player = new Player();
                 player.SetInGame(true);
                 player.SetPlayerId(i + 1);
 
                 //Setzt das Objekt Spieler als Computer fest
-                if (this.computer && this.playerCount > i)
+                if (this.computer && (this.playerCount >= i))
                 {
                     player.setKI(true);
                 }
@@ -210,9 +210,15 @@ namespace Autoquartett2
                 gui.ShowCard(car);
                 y++;
 
-                gui.SetWindowCursorCoords(2, y);
-                gui.UserInput("Welcher Wert soll verglichen werden?");
-                CompareCards(gui);
+                if (!player.isKI())
+                {
+                    gui.SetWindowCursorCoords(2, y);
+                    gui.UserInput("Welcher Wert soll verglichen werden?");
+                }
+                CompareCards(player, gui, y);
+                //gui.SetWindowCursorCoords(2, y);
+                //gui.UserInput("Welcher Wert soll verglichen werden?");
+                //CompareCards(gui);
             }
             else
             {
@@ -223,14 +229,14 @@ namespace Autoquartett2
             return true;
         }
 
-        private void CompareCards(GUI gui)
+        private void CompareCards(Player player, GUI gui, int y)
         {
             List<Car> carsToCompare = GetCardsToCompare();
-            int winnerIndex = GetInput(carsToCompare, gui);
+            int winnerIndex = GetInput(carsToCompare, player, gui, y);
             while (winnerIndex < 0)
             {
                 List<Car> stingList = GetCardsToCompare();
-                winnerIndex = GetInput(stingList, gui);
+                winnerIndex = GetInput(stingList, player, gui, y);
 
                 foreach (Car car in stingList)
                 {
@@ -280,44 +286,65 @@ namespace Autoquartett2
             return Console.ReadLine();
         }
 
-        public int GetInput(List<Car> carList, GUI gui)
+        public int GetInput(List<Car> carList, Player player, GUI gui, int y)
         {
             bool higherNumber = true;
-            string playerInput;
+            string playerInput = "";
             int stringValue;
-            playerInput = Console.ReadLine().ToLower();
-
+            string computerInput = "";
+            if(player.isKI()) {
+                Random rng = new Random();
+                playerInput = System.Convert.ToString(rng.Next(1, 7));
+            }
+            else
+            {
+                playerInput = Console.ReadLine().ToLower();
+            }
             switch (playerInput)
             {
                 case "1":
                 case "beschleunigung":
                     higherNumber = false;
                     stringValue = 1;
+                    computerInput = "Beschleunigung";
                     break;
                 case "2":
                 case "hubraum":
                     stringValue = 2;
+                    computerInput = "Hubraum";
                     break;
                 case "3":
                 case "verbrauch":
                     higherNumber = false;
                     stringValue = 3;
+                    computerInput = "Verbrauch";
                     break;
                 case "4":
                 case "geschwindigkeit":
                     stringValue = 4;
+                    computerInput = "Geschwindigkeit";
                     break;
                 case "5":
                 case "leistung":
                     stringValue = 5;
+                    computerInput = "Leistung";
                     break;
                 case "6":
                 case "zylinder":
                     stringValue = 6;
+                    computerInput = "Zylinder";
                     break;
                 default:
                     stringValue = 0;
                     break;
+            }
+            if (player.isKI())
+            {
+                gui.SetWindowCursorCoords(2, y);
+
+                gui.UserInput("Der Computer hat folgenden Wert gewählt: " + computerInput);
+
+                Console.ReadLine();
             }
             return FillArray(stringValue, higherNumber, carList, gui);
         }
