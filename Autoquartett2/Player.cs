@@ -99,5 +99,13 @@ namespace Autoquartett2
         {
             return this.cars.Count;
         }
+
+        /*
+         * Entfernt alle Karten aus dem Deck des Spielers.
+         */
+        public void RemoveAllCards()
+        {
+            cars.Clear();
+        }
     }
 }
